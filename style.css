@@ -4,6 +4,7 @@
     --white-color: white;
     --dark-color: rgb(52, 50, 50);
     --warning-color: red;
+    --primary-color-dark: rgb(88, 68, 18);
 }
 
 *,
@@ -21,7 +22,7 @@ body {
     background-color: var(--primary-color);
     color: var(--white-color);
     display: grid;
-    grid: "header header header header" auto "...... lists active ......" auto / 1fr minmax(101px, 303px) minmax(251px, 505px) 1fr;
+    grid: "header header header header" auto "lists ...... active ......" auto / 1fr minmax(101px, 303px) minmax(251px, 505px) 1fr;
 }
 
 .title {
@@ -36,6 +37,10 @@ body {
 
 .full-tasks-list {
     grid-area: lists;
+    background: var(--primary-color-dark);
+    padding: 1em;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
 .task-list {

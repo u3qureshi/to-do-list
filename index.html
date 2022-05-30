@@ -8,6 +8,7 @@
     <title>ToDo List</title>
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Maitree:wght@200&family=Nunito:wght@200&family=Permanent+Marker&family=Shadows+Into+Light&family=Text+Me+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="index.js"></script>
 </head>
 
 <body>
@@ -15,48 +16,50 @@
 
     <div class="full-tasks-list">
         <div class="list-title">Your Lists</div>
-        <ul class="task-list">
-            <li class="list-name active-list">List one</li>
+        <ul class="task-list" data-my-lists>
+            <!-- <li class="list-name active-list">List one</li>
             <li class="list-name">List two</li>
-            <li class="list-name">List three</li>
+            <li class="list-name">List three</li> -->
         </ul>
 
-        <form action="">
-            <input type="text" class="new new-list" placeholder="New list" aria-label="new-list-name" />
+        <form action="" data-create-new-list-form>
+            <input type="text" class="new new-list" data-create-new-list-input placeholder="New list" aria-label="new-list-name" />
             <button class="button list-button" aria-label="create-new-list">+</button>
         </form>
     </div>
 
-    <div class="to-do-list">
+    <div class="to-do-list" data-current-display-container>
         <div class="to-do-header">
-            <h2 class="list-title">List one</h2>
-            <p class="task-count">3 tasks remaining</p>
+            <h2 class="list-title" data-list-title>List one</h2>
+            <p class="task-count" data-current-list-count>3 tasks remaining</p>
         </div>
 
         <div class="to-do-body">
-            <div class="tasks">
-                <div class="task">
-                    <input type="checkbox" id="task-1" />
-                    <label for="task-1"><span class="custom-checkbox"></span> basketball practice</label>
-                </div>
-                <div class="task">
-                    <input type="checkbox" id="task-2" />
-                    <label for="task-2"><span class="custom-checkbox"></span>another task</label>
-                </div>
+            <div class="tasks" data-tasks-container>
+
             </div>
             <div class="new-task-creator">
-                <form action="">
-                    <input type="text" class="new new-task" placeholder="New task" aria-label="new-task-name" />
+                <form action="" data-create-new-task-form>
+                    <input type="text" class="new new-task" data-create-new-task-input placeholder="New task" aria-label="new-task-name" />
                     <button class="button list-button task-button" aria-label="create-new-task">+</button>
                 </form>
             </div>
             <div class="list-deletor">
-                <button class="delete-button">Clear completed tasks</button>
-                <button class="delete-button">Delete entire list</button>
+                <button class="delete-button clear-completed-button">Clear completed tasks</button>
+                <button class="delete-button delete-list-button">Delete entire list</button>
             </div>
         </div>
     </div>
 
+    <!--Template for the tasks to be implemented with JS-->
+    <template class="template-task" data-task-template>
+        <div class="task">
+            <input type="checkbox"/>
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+        </div>
+    </template>
 </body>
 
 </html>
