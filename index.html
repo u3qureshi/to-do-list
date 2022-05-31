@@ -13,7 +13,6 @@
 
 <body>
     <h1 class="title">ToDo List</h1>
-
     <div class="full-tasks-list">
         <div class="list-title">Your Lists</div>
         <ul class="task-list" data-my-lists>
@@ -26,14 +25,19 @@
             <input type="text" class="new new-list" data-create-new-list-input placeholder="New list" aria-label="new-list-name" />
             <button class="button list-button" aria-label="create-new-list">+</button>
         </form>
+        <div class="urgent-checkbox">
+            <input type="checkbox" id="new-list-checkbox" name="new-list-checkbox" value="Urgent">
+            <label for="new-list-checkbox">Urgent</label>
+        </div>
     </div>
 
     <div class="to-do-list" data-current-display-container>
+        <div class="isurgent">URGENT</div>
         <div class="to-do-header">
             <h2 class="list-title" data-list-title></h2>
             <div class="list-subtitle">
-                <p class="task-date" data-current-list-date></p>
-                <p class="task-count" data-current-list-count></p>
+                <p class="list-task task-date" data-current-list-date></p>
+                <p class="list-task task-count" data-current-list-count></p>
             </div>
         </div>
 
@@ -57,7 +61,7 @@
     <!--Template for the tasks to be implemented with JS-->
     <template class="template-task" data-task-template>
         <div class="task">
-            <input type="checkbox"/>
+            <input type="checkbox" id="checkbox"/>
             <label>
                 <span class="custom-checkbox"></span>
             </label>

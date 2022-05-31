@@ -124,6 +124,7 @@ form {
     grid-area: active;
     background: var(--light-color);
     color: var(--dark-color);
+    margin-bottom: 5em;
 }
 
 .to-do-header {
@@ -235,7 +236,7 @@ form {
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -45px;
+    bottom: -50px;
 }
 
 .list-deletor button {
@@ -319,4 +320,44 @@ form .new-task::placeholder {
 .delete-alert button:hover {
     opacity: 0.7;
     cursor: pointer;
+}
+
+#new-list-checkbox {
+    opacity: 1;
+    position: relative;
+    accent-color: red;
+}
+
+#new-list-checkbox::after {
+    content: none !important;
+}
+
+#new-list-checkbox::before {
+    content: none !important;
+}
+
+.urgent-checkbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.urgent-checkbox label {
+    margin: 0;
+    padding: 0;
+}
+
+#new-list-checkbox:checked+label {
+    color: red;
+    opacity: 1;
+}
+
+.isurgent {
+    background: red;
+    color: white;
+    font-size: 0.7rem;
+    text-align: center;
+    font-weight: 800;
+    font-family: 'Courier New', Courier, monospace;
 }

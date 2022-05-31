@@ -15,6 +15,8 @@ const clearCompletedTasksButton = document.querySelector('.clear-completed-butto
 const deleteEntireListButton = document.querySelector('.delete-list-button');
 const alertTemplate = document.querySelector('[data-delete-alert-template]');
 const listDate = document.querySelector('[data-current-list-date]');
+const urgentCheckbox = document.getElementById('new-list-checkbox');
+const urgentSign = document.querySelector('.isurgent');
 
 /** Main Section Start */
 
@@ -59,12 +61,11 @@ createNewListForm.addEventListener('submit', e => {
 createNewTaskForm.addEventListener('submit', e => {
     newTaskFunc(e);
 });
-
 /** Function section */
 
-function createNewList(listName) {
+function createNewList(listName, isUrgent) {
     let date = new Date();
-    return { listId: date.toString(), listName: listName, tasksArray: [] };
+    return { listId: date.toString(), listName: listName, tasksArray: [], isUrgent };
 }
 
 function createNewTask(newTaskName) {
@@ -75,6 +76,7 @@ function initializeWebsite() {
     clearElement(listsContainer);
     initializeLists();
     const currentSelectedList = yourListsArray.find(list => list.listId === selectedListId);
+    console.log(currentSelectedList)
 
     if (selectedListId === 'null' || selectedListId === null || selectedListId === undefined || selectedListId === '') {
         currentDisplayContainer.style.display = 'none';
@@ -85,6 +87,11 @@ function initializeWebsite() {
         initializeCurrentTaskCount(currentSelectedList);
         clearElement(tasksContainer);
         initializeTasks(currentSelectedList);
+        if (currentSelectedList.isUrgent) {
+            urgentSign.style.display = '';
+        } else {
+            urgentSign.style.display = 'none';
+        }
     }
 
 }
@@ -230,10 +237,10 @@ function newListFunc(e) {
     const newListName = createNewListInput.value;
     if (newListName === '' || newListName == null) {
         document.querySelector('.new-list').style.color = 'red';
-        setTimeout(() => { document.querySelector('.new-list').style.color = 'inherit' }, 2000);
+        setTimeout(() => { document.querySelector('.new-list').style.color = 'inherit' }, 1500);
         return;
     }
-    const newList = createNewList(newListName);
+    const newList = createNewList(newListName, urgentCheckbox.checked);
     createNewListInput.value = '';
     //Push the newly created yourList object onto the yourListsArray
     yourListsArray.push(newList);
