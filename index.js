@@ -125,7 +125,11 @@ function initializeLists() {
             liElement.classList.add('active-list');
         }
         listsContainer.appendChild(liElement);
-    })
+        if (list.isUrgent) {
+            liElement.style.borderRight = '5px solid red';
+            liElement.style.borderRadius = '5px';
+        }
+    });
 }
 
 function initializeAndSaveListMediator() {
