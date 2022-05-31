@@ -1,5 +1,6 @@
 # to-do-list
-(LIVE PREVIEW)[https://rococo-cucurucho-3d6c5f.netlify.app/]
+[LIVE PREVIEW](https://rococo-cucurucho-3d6c5f.netlify.app/)
+
 📝 Description
 - Todo List built using vanilla JavaScript, HTML and CSS. Goal was to polish and solidify understanding and skills of advanced JavaScript and object oriented programming.
 
