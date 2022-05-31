@@ -14,6 +14,7 @@ const createNewTaskInput = document.querySelector('[data-create-new-task-input]'
 const clearCompletedTasksButton = document.querySelector('.clear-completed-button');
 const deleteEntireListButton = document.querySelector('.delete-list-button');
 const alertTemplate = document.querySelector('[data-delete-alert-template]');
+const listDate = document.querySelector('[data-current-list-date]');
 
 /** Main Section Start */
 
@@ -62,7 +63,8 @@ createNewTaskForm.addEventListener('submit', e => {
 /** Function section */
 
 function createNewList(listName) {
-    return { listId: Date.now().toString(), listName: listName, tasksArray: [] };
+    let date = new Date();
+    return { listId: date.toString(), listName: listName, tasksArray: [] };
 }
 
 function createNewTask(newTaskName) {
@@ -79,6 +81,7 @@ function initializeWebsite() {
     } else {
         currentDisplayContainer.style.display = '';
         listTitle.textContent = currentSelectedList.listName;
+        listDate.textContent = 'Created on ' + currentSelectedList.listId.slice(4, 15);
         initializeCurrentTaskCount(currentSelectedList);
         clearElement(tasksContainer);
         initializeTasks(currentSelectedList);
